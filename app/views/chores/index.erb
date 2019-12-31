@@ -1,1 +1,10 @@
-Hello Sucka 
+
+
+<% @chores.each do |mess| %>
+    <%= erb :'chores/_chore', locals: {user: mess.user, chore: mess} %>
+<% end %>
+
+
+<%# <% @chores.each do |chore| %> 
+    <%# <%= erb :'chores/_chore', locals: {user: chore.user, chore: chore} %> 
+<%# <% end %> 
