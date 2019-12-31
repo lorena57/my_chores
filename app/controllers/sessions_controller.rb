@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
     
     #Routes for user to login
     get '/login' do
-        
+        redirect '/chores' if logged_in?
         @failed = false
         erb :'sessions/login'
     end

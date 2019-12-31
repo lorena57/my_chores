@@ -10,6 +10,10 @@
 <body>
     <h1>My Chores, where all is clean.</h1>
 
+    <% if logged_in? %>
+        <a href="/chores">Chores</a>
+    <% end %>
+
     <%= yield %>
 </body>
 </html>
