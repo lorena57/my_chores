@@ -1,5 +1,11 @@
 <h2>Welcome, <%= current_user.username %></h2>
 
+<h4>What one of your chores would you like to review?</h4>
+<% @user.chores.each do |clean| %>
+   <ol><a href="/chores"><%=clean.task%></a></ol>
+<% end %>
+
+<h3><a href="/chores/new">Add a new chore?</a></h3>
 
 
 <%# Removed the home page and changed the redirects on chores_controllers to '/chores' from '/home' %>

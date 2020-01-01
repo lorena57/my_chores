@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
     
     #Routes for user to login
     get '/login' do
-        redirect '/chores' if logged_in?
+        redirect '/home' if logged_in?
         @failed = false
         erb :'sessions/login'
     end
@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
         user = User.find_by(username: params[:username])
         if !!user && user.authenticate(params[:password])
             session[:user_id] = user.id
-            redirect '/chores'
+            redirect '/home'
         else 
             @failed = true
             erb :'sessions/login' 
@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
 
     #Routes for user to signup
     get '/signup' do
-        redirect '/chores' if logged_in?
+        redirect '/home' if logged_in?
         erb :'sessions/signup'
     end
 
@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
             erb :'sessions/signup'
         else
             session[:user_id] = @user.id
-            redirect '/chores'
+            redirect '/home'
         end
     end
 

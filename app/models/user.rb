@@ -7,6 +7,6 @@ class User < ActiveRecord::Base
     validates :password, length: {in: 4..10}
 
     has_many :chores
-    has_many :gadgets, through :chores
+    has_many :gadgets, through: :chores
 end
 

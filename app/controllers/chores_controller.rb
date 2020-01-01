@@ -28,9 +28,8 @@ class ChoresController < ApplicationController
         #Delete a chore
 
     delete '/chores/:id' do
-        
+        authorize
         chore = Chore.find_by(id: params[:id])
-        authenticate_user(@chore)
         if chore
             chore.destroy
             redirect '/chores'
@@ -41,7 +40,7 @@ class ChoresController < ApplicationController
 #Edit a chore
     get '/chores/:id/edit' do
         @chore = Chore.find_by(id: params[:id])
-        authenticate_user(@chore)
+        
         erb :'chores/edit'
  
     end
@@ -50,7 +49,7 @@ class ChoresController < ApplicationController
         @chore = Chore.find_by(id: params[:id])
         authenticate_user(@chore)
         @chore.update(task: params[:task])
-        redirect '/chores'
+        redirect '/home'
     end
 
 
