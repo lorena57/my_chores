@@ -1,4 +1,6 @@
+<h2>Welcome, <%= current_user.username %></h2>
 
+<a href="/chores/new">New Chore</a>
 
 <% @chores.each do |mess| %>
     <%= erb :'chores/_chore', locals: {user: mess.user, chore: mess} %>

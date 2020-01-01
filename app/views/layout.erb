@@ -11,7 +11,11 @@
     <h1>My Chores, where all is clean.</h1>
 
     <% if logged_in? %>
-        <a href="/chores">Chores</a>
+        <%# <a href="/home">Home</a> <a href="/chores">Chores</a> %>
+        <form action="/logout" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="Logout">
+        </form>
     <% end %>
 
     <%= yield %>
