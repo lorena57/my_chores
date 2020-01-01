@@ -33,6 +33,10 @@ class ApplicationController < Sinatra::Base
         def authorize
             if !logged_in? || current_user.nil?
                 redirect '/login'
+            else
+                @user = current_user
+                @user_chores = current_user.chores
+                @user_gadgets = current_user.gadgets
             end
         end
 
