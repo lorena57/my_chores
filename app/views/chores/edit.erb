@@ -1,0 +1,10 @@
+ <% if !!@message %>
+   <p class="danger"><%= @message %></p>
+<% end %>
+
+<form action="/chores/<%= @chore.id %>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <label for="task">Chore to be added:</label><br>
+    <textarea name="task" id="task" cols="30" rows="10"></textarea><br>
+    <input type="submit" value="Add Chore">
+</form>

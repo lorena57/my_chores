@@ -1,4 +1,17 @@
-<div>
+<div class="chore">
     <h4><%= user.username %></h4>
     <h4><%= chore.task %></h4>
+
+    <% if chore.user == current_user %>
+        <a href="/chores/<%= chore.id %>/edit">Edit</a>
+        <form action="/chores/ <%= chore.id %>" method="post" >
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="Delete">
+        </form>
+    <% end %>
+
 </div>
+
+
+  
+  

@@ -20,12 +20,41 @@ class ChoresController < ApplicationController
         if new_chore.save!
             redirect '/chores'
         else
-            @messages = "There was an issue"
+            @message = "There was an issue"
             erb :'/chores/new'
         end
     end
 
-    
+        #Delete a chore
+
+    delete '/chores/:id' do
+        
+        chore = Chore.find_by(id: params[:id])
+        authenticate_user(@chore)
+        if chore
+            chore.destroy
+            redirect '/chores'
+        end
+    end
+
+       
+#Edit a chore
+    get '/chores/:id/edit' do
+        @chore = Chore.find_by(id: params[:id])
+        authenticate_user(@chore)
+        erb :'chores/edit'
+ 
+    end
+
+    patch '/chores/:id' do
+        @chore = Chore.find_by(id: params[:id])
+        authenticate_user(@chore)
+        @chore.update(task: params[:task])
+        redirect '/chores'
+    end
+
+
+
 
 
 

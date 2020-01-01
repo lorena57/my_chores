@@ -40,6 +40,12 @@ class ApplicationController < Sinatra::Base
             !!logged_in? && !current_user.nil?
         end
 
+        def authenticate_user(chore)
+            if !chore || current_user != chore.user
+            redirect '/chores'
+            end
+        end
+
     end
 
 

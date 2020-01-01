@@ -1,3 +1,9 @@
+<% if !!@message %>
+   <p class="danger"><%= @message %></p>
+<% end %>
+
+
+
 <form action="/chores" method="post">
 
     <label for="task">New Chore:</label><br>
