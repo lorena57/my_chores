@@ -1,5 +1,7 @@
 class GadgetsController < ApplicationController
 
+
+
   get '/chores/:id/gadgets/new' do
     if logged_in?
       @chore = Chore.find(params[:id])

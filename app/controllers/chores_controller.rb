@@ -59,5 +59,9 @@ class ChoresController < ApplicationController
 
 
 
-    
+
+
+
+
+
 end
