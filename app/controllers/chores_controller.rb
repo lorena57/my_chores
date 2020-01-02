@@ -4,10 +4,16 @@ class ChoresController < ApplicationController
         authorize
         @chores = Chore.all
         erb :'chores/index'
+
+    end
+
+    #Route to view a specific chore
+    get '/chores/:id' do
+        @chore = Chore.find_by(id: params[:id])
+        erb :'chores/show'
     end
 
     #Create a chore
-
     get '/chores/new' do
         authorize
         erb :'chores/new'
@@ -35,8 +41,7 @@ class ChoresController < ApplicationController
             redirect '/chores'
         end
     end
-
-       
+     
 #Edit a chore
     get '/chores/:id/edit' do
         @chore = Chore.find_by(id: params[:id])
@@ -51,17 +56,6 @@ class ChoresController < ApplicationController
         @chore.update(task: params[:task])
         redirect '/home'
     end
-
-
-
-
-
-
-
-
-
-
-
 
 
 end

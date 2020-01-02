@@ -1,8 +1,6 @@
 class GadgetsController < ApplicationController
 
-
-
-  get '/chores/:id/gadgets/new' do
+ get '/chores/:id/gadgets/new' do
     if logged_in?
       @chore = Chore.find(params[:id])
       erb :'gadgets/new'
@@ -10,6 +8,8 @@ class GadgetsController < ApplicationController
       erb :'sessions/login'
     end
   end
+
+  #Refactor post
 
   post '/chores/:id' do
     if params.values.any? {|value| value == ""}
