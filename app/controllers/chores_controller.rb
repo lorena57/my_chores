@@ -40,7 +40,7 @@ class ChoresController < ApplicationController
 #Edit a chore
     get '/chores/:id/edit' do
         @chore = Chore.find_by(id: params[:id])
-        
+        authenticate_user(@chore)
         erb :'chores/edit'
  
     end

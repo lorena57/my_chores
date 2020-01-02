@@ -1,6 +1,6 @@
 class Gadget <ActiveRecord::Base
 
-    belongs_to :user
-    has_many :chores
+    belongs_to :chore
+    
     
 end
