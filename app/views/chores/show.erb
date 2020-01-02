@@ -1,7 +1,15 @@
-<%= @chore.task %>
-<% @chore.gadgets.each do |tool| %>
-<%= tool %>
-<% end %>
+<a href="/chores/<%=@chore.id%>/gadgets/new">Add a Gadget</a>
+<p><a href="/chores/<%=@chore.id%>/edit">Edit your Chore</a></p>
 
-<a href="/chores/<%=@chore.id%>/edit">Edit</a>
-<a href="/chores/<%=@chore.id%>/gadgets/new">Gadget</a>
+<h4>Your chore:</h4>
+<p><%= @chore.task %></p>
+
+
+
+<h4>Gadgets:</h4>
+<ol>
+<% @chore.gadgets.each do |tool| %>
+<li><%= tool.gizmo %></li>
+<% end %>
+</ol>
+
