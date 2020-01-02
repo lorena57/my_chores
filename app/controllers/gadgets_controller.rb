@@ -24,21 +24,21 @@ class GadgetsController < ApplicationController
     end
   end
 
-  delete '/chores/:id/gadgets/:gadget_id/delete' do 
-    @chore = Chore.find(params[:id])
-    @gadget = Gadget.find(params[:gadget_id])
-    if logged_in?
-      @chore = Chore.find(params[:id])
-    if @chore.user_id == session[:user_id]
-        @gadget = Gadget.find(params[:gadget_id])
-        @gadget.delete
-        redirect to "/chores/#{@chore.id}"
-    else
-      redirect to "/chores/#{@chore.id}"
-    end
-    else
-      erb :'sessions/login'
-    end
-  end
+  # delete '/chores/:id/gadgets/:gadget_id/delete' do 
+  #   @chore = Chore.find(params[:id])
+  #   @gadget = Gadget.find(params[:gadget_id])
+  #   if logged_in?
+  #     @chore = Chore.find(params[:id])
+  #   if @chore.user_id == session[:user_id]
+  #       @gadget = Gadget.find(params[:gadget_id])
+  #       @gadget.delete
+  #       redirect to "/chores/#{@chore.id}"
+  #   else
+  #     redirect to "/chores/#{@chore.id}"
+  #   end
+  #   else
+  #     erb :'sessions/login'
+  #   end
+  # end
 
 end

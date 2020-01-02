@@ -4,16 +4,9 @@ class ChoresController < ApplicationController
         authorize
         @chores = Chore.all
         erb :'chores/index'
-
     end
 
-    #Route to view a specific chore
-    get '/chores/:id' do
-        @chore = Chore.find_by(id: params[:id])
-        erb :'chores/show'
-    end
-
-    #Create a chore
+        #Create a chore
     get '/chores/new' do
         authorize
         erb :'chores/new'
@@ -30,6 +23,14 @@ class ChoresController < ApplicationController
             erb :'/chores/new'
         end
     end
+
+    #Route to view a specific chore
+    get '/chores/:id' do
+        @chore = Chore.find_by(id: params[:id])
+        erb :'chores/show'
+    end
+
+
 
         #Delete a chore
 
