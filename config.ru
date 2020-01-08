@@ -5,3 +5,5 @@ use SessionsController
 use ChoresController
 use GadgetsController
 run ApplicationController
+
+#run ApplicationController file starts the application (app/my_chores)

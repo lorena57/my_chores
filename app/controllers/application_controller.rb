@@ -1,3 +1,6 @@
+#ApplicationController inherits from Sinatra::Base 
+#controllers define HTTP methods, like 'get' & 'post'
+
 class ApplicationController < Sinatra::Base
 
     configure do
