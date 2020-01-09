@@ -16,7 +16,7 @@ class ChoresController < ApplicationController
         authorize
         u = current_user
         new_chore = u.chores.build(task: params[:task])
-        if new_chore.save!
+        if new_chore.save
             redirect '/chores'
         else
             @message = "There was an issue"

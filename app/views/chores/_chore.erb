@@ -4,7 +4,7 @@
     
     
 
-    <% if chore.user == current_user %>
+    <% if authorized?(chore) %>
         <a href="/chores/<%= chore.id %>/edit">Edit</a>
         <form action="/chores/ <%= chore.id %>" method="post" >
             <input type="hidden" name="_method" value="delete">

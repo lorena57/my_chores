@@ -19,9 +19,9 @@ class GadgetsController < ApplicationController
       erb :'gadgets/new'
     else
       @chore = Chore.find(params[:id])
-      @gadget = Gadget.new(gizmo: params[:gizmo])
-      @gadget.save
-      @chore.gadgets << @gadget
+      @chore.gadgets.build(gizmo: params[:gizmo])
+      @chore.save
+      # @chore.gadgets << @gadget
       redirect to "/chores/#{@chore.id}"
     end
   end
